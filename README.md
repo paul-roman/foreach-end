@@ -1,5 +1,5 @@
 # foreach-end
-[![license](https://img.shields.io/github/license/paul-roman/foreach-end.svg?style=flat-square)](https://github.com/paul-roman/foreach-end/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/paul-roman/foreach-end.svg?style=flat-square)](https://github.com/paul-roman/foreach-end/blob/master/LICENSE.md)
 [![npm](https://img.shields.io/npm/dt/foreach-end.svg?style=flat-square)](https://www.npmjs.com/package/foreach-end)
 
 This library allows you to iterate over arrays with a final operation that can be executed when all the others are completed.
