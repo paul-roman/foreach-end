@@ -8,7 +8,7 @@ The `forEachEnd` method on `Array` object can be used in the same way as a stand
 - A `done` function is provided inside the callback that need to be called when your individual task is performed 
 - A second callback is required by the method that will be executed at the end of the loop
 
-```
+```javascript
 // CommonJS
 require('foreach-end');
 // ES6
@@ -32,7 +32,7 @@ ended!
 ```
 
 You can still use the standard `index` and `array` provided by standard API:
-```
+```javascript
 ['a', 'b', 'c', 'd'].forEachEnd((value, done, index, array) => {
 	console.log(`${index + 1} / ${array.length} => ${value} starting`);
 	setTimeout(() => {
