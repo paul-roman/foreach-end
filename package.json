@@ -1,10 +1,11 @@
 {
   "name": "foreach-end",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "repository": "https://github.com/paul-roman/foreach-end.git",
   "author": "Paul Roman <paul.roman@epitech.eu>",
   "license": "MIT",
+  "types": "./types.d.ts",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
