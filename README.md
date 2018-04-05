@@ -4,6 +4,11 @@
 
 This library allows you to iterate over arrays with a final operation that can be executed when all the others are completed.
 
+### Changelog
+#### 1.1.0 (05/04/2018)
+
+- The function can now be used with promises
+
 The `forEachEnd` method on `Array` object can be used in the same way as a standard `forEach` but with small API changes:
 - A `done` function is provided inside the callback that need to be called when your individual task is performed 
 - A second callback is required by the method that will be executed at the end of the loop
@@ -31,7 +36,7 @@ ended!
 */
 ```
 
-You can still use the standard `index` and `array` provided by standard API:
+You can still use `index` and `array` provided by standard API. Also the function is compatible with `Promises`!
 ```javascript
 ['a', 'b', 'c', 'd'].forEachEnd((value, done, index, array) => {
 	console.log(`${index + 1} / ${array.length} => ${value} starting`);
@@ -39,7 +44,7 @@ You can still use the standard `index` and `array` provided by standard API:
 		console.log(`${value} evaluated`);
 		done();
 	}, 1000);
-}, () => {
+}).then(() => {
 	console.log('ended!');
 });
 

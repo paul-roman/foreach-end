@@ -82,24 +82,44 @@
 "use strict";
 
 
+function promisify(array, elementCallback, thisArg) {
+  return new Promise(function (resolve) {
+    if (!array.length) {
+      resolve();
+      return;
+    }
+
+    var counter = 0;
+    var done = function done() {
+      counter++;
+      if (counter === array.length) resolve();
+    };
+    array.forEach(function (value, index, array) {
+      elementCallback(value, done, index, array);
+    }, thisArg);
+  });
+}
+
 Object.assign(Array.prototype, {
-	forEachEnd: function forEachEnd(elementCallback, endCallback, thisArg) {
-		var _this = this;
+  forEachEnd: function forEachEnd(elementCallback, endCallback, thisArg) {
+    var _this = this;
 
-		if (!this.length) {
-			if (endCallback) endCallback();
-			return;
-		}
+    if (typeof endCallback !== 'function') return promisify(this, elementCallback, endCallback);
 
-		var counter = 0;
-		var done = function done() {
-			counter++;
-			if (counter === _this.length && endCallback) endCallback();
-		};
-		this.forEach(function (value, index, array) {
-			elementCallback(value, done, index, array);
-		}, thisArg);
-	}
+    if (!this.length) {
+      endCallback();
+      return;
+    }
+
+    var counter = 0;
+    var done = function done() {
+      counter++;
+      if (counter === _this.length) endCallback();
+    };
+    this.forEach(function (value, index, array) {
+      elementCallback(value, done, index, array);
+    }, thisArg);
+  }
 });
 
 /***/ })

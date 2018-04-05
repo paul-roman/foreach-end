@@ -1,6 +1,6 @@
 {
   "name": "foreach-end",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "repository": "https://github.com/paul-roman/foreach-end.git",
   "author": "Paul Roman <paul.roman@epitech.eu>",

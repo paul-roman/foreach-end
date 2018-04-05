@@ -13,6 +13,6 @@ require('./dist/index');
 		console.log(`${value} evaluated`);
 		done();
 	}, 1000);
-}, () => {
+}).then(() => {
 	console.log('ended!');
 });
